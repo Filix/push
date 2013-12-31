@@ -1,0 +1,12 @@
+<div class="page-title-small">
+    <h3>重置密码</h3>
+</div>
+{{ form_start(form, {'action': path('fos_user_resetting_reset', {'token': token}), 'method': 'POST'}) }}
+    <div class="row-fluid">
+        {{ form_widget(form.new.first, {'attr': {'placeholder': '新密码', 'class': 'span12'}}) }}
+        {{ form_widget(form.new.second, {'attr': {'placeholder': '重复密码', 'class': 'span12'}}) }}
+    </div>
+    <div class="actions">
+        <button type="submit" class="btn span12">重置</button>
+    </div>
+{{ form_end(form) }}

@@ -1,0 +1,7 @@
+parameters:
+#    yiban_api.example.class: Yiban\ApiBundle\Example
+
+services:
+#    yiban_api.example:
+#        class: %yiban_api.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

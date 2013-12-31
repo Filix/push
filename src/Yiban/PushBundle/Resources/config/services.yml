@@ -1,0 +1,38 @@
+parameters:
+#    yiban_push.example.class: Yiban\PushBundle\Example
+
+services:
+    yiban.admin.user:
+        class: Yiban\PushBundle\Admin\UserAdmin
+        tags: [{ name: sonata.admin, manager_type: orm, label: 用户 }]
+        arguments: ["", Yiban\PushBundle\Entity\User, YibanPushBundle:User, @service_container ]
+        
+    yiban.admin.app:
+        class: Yiban\PushBundle\Admin\AppAdmin
+        tags: [{ name: sonata.admin, manager_type: orm, label: 应用 }]
+        arguments: ["", Yiban\PushBundle\Entity\App, YibanPushBundle:App, @service_container ]
+    #推送
+    yiban.admin.message:
+        class: Yiban\PushBundle\Admin\MessageAdmin
+        tags: [{ name: sonata.admin, manager_type: orm, label: 消息 }]
+        arguments: ["", Yiban\PushBundle\Entity\Message, YibanPushBundle:Message, @service_container ]
+        
+    yiban.pusher.getui:
+        class: Yiban\PushBundle\Util\GetuiPusherService
+        arguments: [@doctrine.orm.default_entity_manager]
+        
+    yiban.pusher.baidu:
+        class: Yiban\PushBundle\Util\BaiduPusherService
+        arguments: [@doctrine.orm.default_entity_manager]
+        
+    yiban.pusher.jpush:
+        class: Yiban\PushBundle\Util\JpushPusherService
+        arguments: [@doctrine.orm.default_entity_manager]
+        
+    yiban.pusher:
+        class: Yiban\PushBundle\Util\PusherService
+        arguments: [@service_container]
+        
+#    yiban.pusher.baidu:
+#        class: Yiban\PushBundle\Util\BaiduService;
+#        arguments: [@service_container]

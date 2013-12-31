@@ -1,0 +1,124 @@
+Yiban\PushBundle\Entity\User:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: username
+    properties:
+        username:
+            - NotBlank: 
+                message: 用户名不能为空
+            - Length:
+                min: 2
+                maxMessage: 用户名不能少于{{ limit }}个字
+                max: 20
+                maxMessage: 用户名最多{{ limit }}个字
+        email:
+            - NotBlank:
+                message: 邮箱不能为空
+            - Email:
+                message: 邮箱格式错误
+        
+Yiban\PushBundle\Entity\App:   
+    properties:
+        name:
+            - NotBlank: 
+                message: 应用名称不能为空
+        app_id:
+            - NotBlank: 
+                message: app_id不能为空
+                groups: [ getui, baidu ]
+        app_key:
+            - NotBlank: 
+                message: app_key不能为空
+        app_secret:
+            - NotBlank: 
+                message: app_secret不能为空
+        master_secret:
+            - NotBlank: 
+                message: master_secret不能为空
+                groups: [ jpush ]
+        platform:
+            - Choice: { choices: [1, 10, 11], message: 平台选择有误 }
+        type:
+            - Choice: { choices: [GETUI, BAIDU, JPUSH], message: 所属第三方服务必选 }
+            
+            
+Yiban\PushBundle\Entity\Message:   
+    properties:
+        title: 
+            - NotBlank: 
+                message: 标题不能为空
+            - Length:
+                max: 20
+                maxMessage: 标题最多{{ limit }}个字
+        message: 
+            - NotBlank: 
+                message: 内容不能为空
+            - Length:
+                max: 40
+                maxMessage: 内容最多{{ limit }}个字
+                groups: [ baidu_notice]
+            - Length:
+                max: 50
+                maxMessage: 内容最多{{ limit }}个字
+                groups: [ getui_notice]
+            - Length:
+                max: 72
+                maxMessage: 内容最多{{ limit }}个字
+                groups: [ jpush_notice]
+        is_ring:
+            - Type:
+                type: bool
+                message: is_ring的值：{{ value }} 不是一个 {{ type }}
+        is_shake:
+            - Type:
+                type: bool
+                message: is_shake的值：{{ value }} 不是一个 {{ type }}
+        clearable:
+            - Type:
+                type: bool
+                message: clearable的值：{{ value }} 不是一个 {{ type }}
+        click_action:
+            - Choice: { choices: [ OPENAPP, OPENURL, DOWNLOAD ], message: 点击动作有误 }
+        click_url:
+            - Url:
+                message: 点击跳转url格式错误
+        platform:
+            - Choice: { choices: [1, 10, 11], message: 平台选择有误, groups: [ push_to_app ] }
+        user_id:
+            - NotBlank: 
+                message: 内容不能为空
+                groups: [ push_to_user ]
+        offline_time:
+            - Range:
+                min: 0
+                max: 48
+                minMessage: 离线保留时间至少为0
+                maxMessage: 离线保留时间最多48小时
+
+Yiban\PushBundle\Entity\Client:   
+    properties:
+        uid: 
+            - NotBlank: 
+                message: uid不能为空
+        cid: 
+            - NotBlank: 
+                message: cid不能为空
+            - Length:
+                max: 50
+                maxMessage: cid最多{{ limit }}个字
+        channel_id: 
+            - NotBlank: 
+                message: channel_id不能为空
+                groups: [baidu]
+            - Length:
+                max: 50
+                maxMessage: channel_id最多{{ limit }}个字
+                groups: [baidu]
+        platform:
+            - NotBlank:
+                message: platform不能为空
+            - Choice: { choices: [ ANDROID, IOS ], message: 平台信息有误 }
+        app:
+            - NotBlank:
+                message: app信息不能为空
+        

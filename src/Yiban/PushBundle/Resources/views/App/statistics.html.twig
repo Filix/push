@@ -1,0 +1,14 @@
+{% extends base_template %}
+{% block javascripts %}
+{{parent()}}
+<script src="{{ asset('bundles/obhighcharts/js/highcharts/highcharts.js') }}"></script>
+<script src="{{ asset('bundles/obhighcharts/js/highcharts/modules/exporting.js') }}"></script>
+<script type="text/javascript">
+    {{ chart(chart) }}
+</script>
+{% endblock %}
+{% block sonata_page_content %}
+   {{ application.getName() }}
+<div id="linechart" style="min-width: 400px; height: 400px; margin: 30px;"></div>
+{% endblock%}
+

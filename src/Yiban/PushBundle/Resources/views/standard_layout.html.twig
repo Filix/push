@@ -1,0 +1,6 @@
+{% extends "SonataAdminBundle::standard_layout.html.twig" %}
+{% block top_bar_after_nav %}
+<li>
+    <a href="{{ path('fos_user_security_logout') }}" >退出</a>
+</li>
+{% endblock %}

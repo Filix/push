@@ -1,0 +1,11 @@
+<form method="post" action="{{ path('fos_user_resetting_send_email') }}" >
+    <div class="row-fluid">
+        <input class="span12" id="user" name="username" type="text" value="" placeholder="用户名或邮箱" />
+        {% if invalid_username is defined %}
+        <h3 class="text-error">不存在该用户名或邮箱</h3>
+        {% endif %}
+    </div>
+    <div class="actions">
+        <button type="submit" class="btn span12">找回密码</button>
+    </div>
+</form>

@@ -1,0 +1,4 @@
+yiban_v1_api:
+    resource: "@YibanApiBundle/Controller/REST/V1"
+    type:     annotation
+    prefix:   /v1

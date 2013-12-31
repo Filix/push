@@ -1,0 +1,74 @@
+{% block all %}
+<!DOCTYPE html>
+<html lang="en">
+    {% block head_tag %}
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}易班 APP消息推送管理后台{% endblock title %}</title> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="{% block description %}Better.com{% endblock description %}" />
+        <meta name="keywords" content="{% block keywords %}Better.com{% endblock keywords %}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        {% block head_css %}
+        {% stylesheets
+                '@YibanPushBundle/Resources/public/css/bootstrap/bootstrap.css'
+                '@YibanPushBundle/Resources/public/css/bootstrap/bootstrap-responsive.css'
+                '@YibanPushBundle/Resources/public/css/style.css'
+                '@YibanPushBundle/Resources/public/css/layerslider.css'
+         %}
+        <link rel="stylesheet"  href="{{ asset_url }}" >
+        {% endstylesheets %}
+        <!--[if lt IE 9 ]>
+        <link href="css/styleIE.css" rel="stylesheet">
+        <![endif]-->
+        <!--[if IE 9 ]>
+        <link href="css/styleIE9.css" rel="stylesheet">
+        <![endif]-->
+        {% endblock head_css %}
+        {% block head_script %}
+        {% javascripts
+                
+        %}
+        <script charset="utf-8" src="{{ asset_url }}"></script> 
+        {% endjavascripts %}
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        {% endblock head_script %}
+      </head>
+      {% endblock head_tag %}
+    <body>
+        {% block header %}{% endblock header %}
+        
+        {% block container %}
+        <!--start: Container -->
+        <div class="container main-content">
+            {% block content %}
+            {% block page_title %}
+            <div id="page-title">
+                <h2>Title</h2>
+            </div>
+            {% endblock page_title %}
+            {% block wrapper %}
+            <div id="wrapper">
+
+            </div>
+            {% endblock wrapper %}
+            {% endblock content %}
+        </div>
+        <!-- end: Container  -->	
+        {% endblock container %}
+
+        {% block footer %}{% endblock footer %}
+        {% block tail_script %}
+        {% javascripts
+                '@YibanPushBundle/Resources/public/js/jquery/jquery-1.8.2.js'
+                '@YibanPushBundle/Resources/public/js/bootstrap/bootstrap.js'
+        %}
+        <script charset="utf-8" src="{{ asset_url }}"></script> 
+        {% endjavascripts %}
+        {% endblock tail_script%}
+
+    </body>
+</html>
+{% endblock all %}

@@ -1,0 +1,8 @@
+index:
+    pattern:  /
+    defaults: { _controller: YibanPushBundle:Index:index }
+
+profile:
+    pattern:  /profile/
+    defaults: { _controller: YibanPushBundle:Index:profile }
+    methods: [GET]

@@ -1,0 +1,8 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field %}
+app_id: {{ object.getAppId() }}<br />
+app_key: {{ object.getAppKey() }}<br />
+app_secret: {{ object.getAppSecret() }}<br />
+master_secret: {{ object.getMasterSecret() }}<br />
+{% endblock %}

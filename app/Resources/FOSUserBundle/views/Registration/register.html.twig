@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+{% block title %}注册{% endblock title %}
+{% block page_title %}
+<div class="row-fluid">
+    <div id="page-title" class="span4 offset4">
+        <h2>注册</h2>
+    </div>
+</div>
+{% endblock page_title %}
+{% block wrapper %}
+<div class="row-fluid">
+    <div id="wrapper" class="lr-page full span4 offset4">
+        <div class="row-fluid">
+            {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+        </div>
+    </div>
+</div>
+{% endblock wrapper %}
