@@ -26,7 +26,8 @@
         "sonata-project/doctrine-orm-admin-bundle": "*",
         "knplabs/knp-menu":"1.1.2",
         "ob/highcharts-bundle": "1.*",
-        "nelmio/api-doc-bundle" :"@stable"
+        "nelmio/api-doc-bundle" :"@stable",
+        "oldsound/rabbitmq-bundle": "1.2.*"
     },
     "scripts": {
         "post-install-cmd": [

@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new Ob\HighchartsBundle\ObHighchartsBundle(),
             new Yiban\ApiBundle\YibanApiBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -75,7 +75,7 @@ class App
     private $messages;
     
    /**
-     * @ORM\OneToMany(targetEntity="Message", mappedBy="app")
+     * @ORM\OneToMany(targetEntity="Client", mappedBy="app")
      **/
     private $clients;
     
